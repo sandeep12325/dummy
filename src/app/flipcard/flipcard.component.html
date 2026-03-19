@@ -1,0 +1,67 @@
+<div class="container">
+
+    <!-- Sidebar Filters -->
+    <aside class="filters">
+        <h3>Filters</h3>
+
+        <!-- Price -->
+        <div class="filter-group">
+            <h4>Price</h4>
+            <input type="range" min="1000" max="20000" [(ngModel)]="maxPrice" [ngModelOptions]="{standalone: true}">
+            <p>Up to ₹{{maxPrice}}</p>
+        </div>
+
+        <!-- Stops -->
+        <div class="filter-group">
+            <h4>Stops</h4>
+            <label>
+                <input type="checkbox" (change)="onStopChange($event, 'Non-stop')">
+                Non-stop
+            </label>
+            <label>
+                <input type="checkbox" (change)="onStopChange($event, '1 Stop')">
+                1 Stop
+            </label>
+        </div>
+
+        <!-- Airlines -->
+        <div class="filter-group">
+            <h4>Airlines</h4>
+            <label *ngFor="let airline of airlinesList">
+                <input type="checkbox" (change)="onAirlineChange($event, airline)">
+                {{airline}}
+            </label>
+        </div>
+
+    </aside>
+
+    <!-- Flight Results -->
+    <main class="results">
+
+        <div *ngFor="let flight of filteredFlights" class="flight-card">
+
+            <div class="flight-info">
+                <h4>{{flight.airline}}</h4>
+                <p>{{flight.from}} → {{flight.to}}</p>
+                <p>{{flight.time}}</p>
+            </div>
+
+            <div class="flight-extra">
+                <p>{{flight.stops}}</p>
+                <p>{{flight.duration}}</p>
+            </div>
+
+            <div class="flight-price">
+                <h3>₹{{flight.price}}</h3>
+                <button>Book</button>
+            </div>
+
+        </div>
+
+        <p *ngIf="filteredFlights.length === 0">
+            No flights found 😢
+        </p>
+
+    </main>
+
+</div>

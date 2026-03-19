@@ -1,0 +1,59 @@
+<h2>User Role Example</h2>
+
+<p *ngIf="currentRole === UserRole.Admin">Admin Access</p>
+<p *ngIf="currentRole === UserRole.User">User Access</p>
+<p *ngIf="currentRole === UserRole.Guest">Guest Access</p>
+
+<button (click)="changeRole(UserRole.Admin)">Admin</button>
+<button (click)="changeRole(UserRole.User)">User</button>
+<button (click)="changeRole(UserRole.Guest)">Guest</button>
+
+<!-- ---- -->
+<h2>Create User</h2>
+
+<form (ngSubmit)="submitForm()">
+
+    <label>Name</label>
+    <input type="text" [(ngModel)]="userData.name" name="name">
+
+    <br><br>
+
+    <label>Email</label>
+    <input type="email" [(ngModel)]="userData.email" name="email">
+
+    <br><br>
+
+    <label>Age</label>
+    <input type="number" [(ngModel)]="userData.age" name="age">
+
+    <br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<h2>Debugger Demo</h2>
+<button (click)="useClick()">Calculate Total</button>
+
+
+<hr>
+<div style="width:250px">
+
+    <input type="text" [(ngModel)]="searchText" (input)="onSearch()" placeholder="Search fruit..." />
+
+    <ul *ngIf="filteredData.length > 0" style="border:1px solid #ccc; padding:0; list-style:none">
+        <li *ngFor="let item of filteredData" (click)="selectItem(item)" style="padding:8px; cursor:pointer">
+            {{item.name}}
+        </li>
+    </ul>
+
+</div>
+
+
+<div class="parent" (click)="onParentClick()">
+    Parent
+
+    <div class="child" (click)="onChildClick($event) ; $event.stopPropagation()">
+        Child
+    </div>
+</div>

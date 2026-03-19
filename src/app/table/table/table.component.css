@@ -1,0 +1,44 @@
+.container {
+  width: 60%;
+  margin: 20px auto;
+  text-align: center;
+  font-family: Arial;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background: #007bff;
+  color: white;
+}
+
+.pagination {
+  margin-top: 15px;
+}
+
+.pagination button {
+  margin: 2px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border: none;
+  background: #eee;
+}
+
+.pagination button.active {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
