@@ -30,4 +30,11 @@ export class DatahandlarService {
   createUser(payload: UserPayload): Observable<any> {
     return this.http.post(this.apiUrl, payload);
   }
+
+
+  uploadfieApi(formData: FormData): Observable<any> {
+    console.log(formData);
+    
+    return this.http.post('http://localhost:3000/api/upload', formData);
+  }
 }

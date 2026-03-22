@@ -1,0 +1,68 @@
+<div class="container mt-4">
+    <div class="card p-4 shadow">
+
+        <h4 class="mb-3">User Form</h4>
+
+        <form [formGroup]="userForm" (ngSubmit)="submitForm()">
+
+            <!-- Name -->
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name" formControlName="name">
+                <div class="text-danger mt-1" *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+                    Name is required
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" placeholder="Enter your email" formControlName="email">
+                <div class="text-danger mt-1" *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+                    <div class="text-danger mt-1" *ngIf="userForm.get('email')?.errors?.['required'] ">
+                        Email is required
+                    </div>
+                    <div class="text-danger mt-1" *ngIf="userForm.get('email')?.errors?.['email'] ">
+                        Invalid email format
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" placeholder="Enter password" formControlName="password">
+            </div>
+
+            <!-- Gender -->
+            <div class="mb-3">
+                <label class="form-label">Gender</label><br>
+                <input type="radio" name="gender" id="male" value="male" formControlName="gender"> <label
+                    for="male">Male</label>
+                <input type="radio" name="gender" id="female" value="female" class="ms-3" formControlName="gender">
+                <label for="female">Female</label>
+                <div class="text-danger mt-1"
+                    *ngIf="userForm.get('gender')?.touched && userForm.get('gender')?.invalid">
+                    Gender is required
+                </div>
+            </div>
+
+            <!-- File Upload -->
+            <div class="mb-3">
+                <label class="form-label">Upload File</label>
+                <input type="file" class="form-control" (change)="onFileChange($event)" multiple>
+                <div class="text-danger mt-1" *ngIf="userForm.get('file')?.touched && userForm.get('file')?.invalid">
+                    <div class="text-danger mt-1" *ngIf="userForm.get('file')?.errors?.['required'] ">
+                        file is required
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+        </form>
+
+    </div>
+</div>

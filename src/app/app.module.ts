@@ -13,6 +13,8 @@ import { FormComponent } from './form/form.component';
 import { HoverDirective } from './directives/hover.directive';
 import { EnumComponent } from './enum/enum.component';
 import { FlipcardComponent } from './flipcard/flipcard.component';
+import { NavComponent } from './nav/nav.component';
+import { UploadComponent } from './file/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FlipcardComponent } from './flipcard/flipcard.component';
     FormComponent,
     HoverDirective,
     EnumComponent,
-    FlipcardComponent
+    FlipcardComponent,
+    NavComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
