@@ -1,0 +1,29 @@
+.custom-modal {
+  width: 400px;
+  max-width: 90vw;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background-color: #f44336;
+  color: white;
+  padding: 15px;
+}
+
+.modal-body {
+  padding: 20px;
+  font-size: 14px;
+}
+
+.modal-footer {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.custom-dialog-container .mat-mdc-dialog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}   

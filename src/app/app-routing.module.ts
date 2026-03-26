@@ -6,6 +6,8 @@ import { EnumComponent } from './enum/enum.component';
 import { FlipcardComponent } from './flipcard/flipcard.component';
 import { NavComponent } from './nav/nav.component';
 import { UploadComponent } from './file/upload/upload.component';
+import { TableComponent } from './mat/table/table.component';
+import { UserFormComponent } from './mat/user-form/user-form.component';
 
 const routes: Routes = [
   { path: 'from', component: FromeventComponent },
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: "table", loadChildren: () => import('./table/table.module').then(m => m.TableModule) },
   { path: 'flipcard', component: FlipcardComponent },
   { path: 'file', component: UploadComponent },
+  { path: 'matTable', component: TableComponent },
+  { path: 'userform', component: UserFormComponent },
 
 ];
 

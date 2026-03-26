@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { UserPayload } from '../interface/user.interface';
 
 @Injectable({
@@ -34,7 +34,31 @@ export class DatahandlarService {
 
   uploadfieApi(formData: FormData): Observable<any> {
     console.log(formData);
-    
+
     return this.http.post('http://localhost:3000/api/upload', formData);
+  }
+
+
+  cutome(payload: UserPayload): Observable<any> {
+    console.log('Payload received:', payload);
+
+    // ✅ Return custom fake response
+    const fakeResponse = {
+      success: true,
+      message: 'User created successfully!',
+      data: payload, // optional, return the payload as data
+    };
+
+    return of(fakeResponse);
+  }
+  createUsermat(payload: any) :any{
+    console.log('Payload received:', payload);
+
+    // ✅ Return custom fake response
+   return  {
+      success: true,
+      message: 'User created successfully!',
+      data: payload, // optional, return the payload as data
+    };
   }
 }

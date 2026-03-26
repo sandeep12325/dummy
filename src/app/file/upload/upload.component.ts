@@ -36,6 +36,7 @@ onFileChange(event: any) {
     // mark control as touched & valid manually
     this.userForm.get('file')?.setValue(this.files);
     this.userForm.get('file')?.markAsTouched();
+    
   }
 }
   submitForm() {

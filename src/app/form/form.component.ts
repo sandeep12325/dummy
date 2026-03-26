@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { DatahandlarService } from '../serice/datahandlar.service';
 
 @Component({
@@ -10,16 +10,22 @@ import { DatahandlarService } from '../serice/datahandlar.service';
 export class FormComponent {
 
   testfrom!: FormGroup;
-  submitted = false
-  constructor(private ser: DatahandlarService) {
-
+  submitted = false;
+  myForm!: FormGroup;
+  constructor(private ser: DatahandlarService, private fb: FormBuilder) {
+    this.myForm = this.fb.group({
+      name: ['', Validators.required],        // ✅ required
+      password: ['', Validators.required],    // ✅ required
+      hasEmail: [''],
+      email: ['']
+    });
   }
   ngOnInit() {
     this.ser.getalldata().subscribe((res: any) => {
       const data = res.filter((item: any) => item.userId === 1);
       console.log(data);
     });
-
+    this.handleValidation();
 
 
     this.testfrom = new FormGroup({
@@ -59,4 +65,30 @@ export class FormComponent {
       email: this.email
     });
   }
+
+  // -dynaically add-----------
+  handleValidation() {
+    this.myForm.get('hasEmail')?.valueChanges.subscribe(value => {
+      console.log(value);
+      
+      const emailControl = this.myForm.get('email');
+
+      if (value === 'yes') {
+        emailControl?.setValidators([Validators.required, Validators.email]);
+      } else {
+        emailControl?.clearValidators();
+      }
+
+      emailControl?.updateValueAndValidity();
+    });
+  }
+
+  onSubmit1() {
+    if (this.myForm.valid) {
+      console.log(this.myForm.value);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+
 }

@@ -110,3 +110,50 @@
   </div>
 
 </div>
+
+<hr>
+<h1>dymaically add validation and error messages</h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit1()">
+
+  <!-- Name -->
+  <label>Name:</label>
+  <input type="text" formControlName="name">
+  <div *ngIf="myForm.get('name')?.errors?.['required']">
+    Name is required
+  </div>
+
+  <br><br>
+
+  <!-- Password -->
+  <label>Password:</label>
+  <input type="password" formControlName="password">
+  <div *ngIf="myForm.get('password')?.errors?.['required']">
+    Password is required
+  </div>
+
+  <br><br>
+
+  <!-- Has Email -->
+  <label>Do you have email?</label>
+  <select formControlName="hasEmail">
+    <option value="">Select</option>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+
+  <br><br>
+
+  <!-- Email -->
+  <label>Email:</label>
+  <input type="text" formControlName="email">
+
+  <div *ngIf="myForm.get('email')?.errors?.['required'] && myForm.get('email')?.touched">
+    Email is required
+  </div>
+
+  <div *ngIf="myForm.get('email')?.errors?.['email']">
+    Invalid email
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
