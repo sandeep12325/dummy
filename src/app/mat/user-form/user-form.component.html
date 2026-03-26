@@ -1,0 +1,30 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+  <input formControlName="name" placeholder="Name" />
+  <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid">
+    Name is required
+  </div>
+
+  <input formControlName="email" placeholder="Email" />
+  <div *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid">
+    Valid email required
+  </div>
+
+  <input type="password" formControlName="password" placeholder="Password" />
+
+  <select formControlName="role">
+    <option value="">Select Role</option>
+    <option value="admin">Admin</option>
+    <option value="user">User</option>
+  </select>
+
+  <!-- File Upload -->
+  <button type="button" (click)="openFileDialog()">Upload File</button>
+
+  <div *ngIf="selectedFile">
+    Selected: {{ selectedFile.name }}
+  </div>
+
+  <button type="submit">Submit</button>
+
+</form>

@@ -1,0 +1,10 @@
+<div class="snack-container" [ngClass]="data.type">
+      
+      <span>{{ data.message }}</span>
+
+      <!-- 👇 Close text button -->
+      <button class="action-btn" (click)="close()">
+        {{ data.action }}
+      </button>
+
+    </div>

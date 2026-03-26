@@ -1,3 +1,45 @@
 .error{
     color: var(--bs-form-invalid-color);
 }
+
+
+form {
+  width: 350px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+}
+
+/* Error message */
+div {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* Add spacing */
+br {
+  display: none;
+}

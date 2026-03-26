@@ -1,0 +1,21 @@
+<div class="custom-modal">
+
+  <!-- Header -->
+  <div class="modal-header">
+    <h2>{{ data.title }}</h2>
+  </div>
+
+  <!-- Body -->
+  <div class="modal-body">
+    <p>{{ data.message }}</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="modal-footer">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">
+      Confirm
+    </button>
+  </div>
+
+</div>

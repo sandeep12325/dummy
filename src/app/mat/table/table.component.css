@@ -1,0 +1,25 @@
+table {
+  width: 100%;
+}
+.action-btn {
+  border-radius: 20px;
+  padding: 5px 15px;
+  font-size: 13px;
+  margin-right: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #4caf50; /* green */
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336; /* red */
+  color: white;
+}
+
+.action-btn:hover {
+  opacity: 0.8;
+}
